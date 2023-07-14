@@ -14,58 +14,62 @@ class Phonebook:
             msg = 'Nome `{}` invalido'.format(name)
             return msg
         if '@' in name:
-            #bug - Nme esperava Nome
+
             msg = 'Nome `{}` invalido'.format(name)
             return msg
         if '!' in name:
             msg = 'Nome `{}` invalido'.format(name)
             return msg
         if '$' in name:
-            #bug - invalio - esperava invalido
             msg = 'Nome `{}` invalido'.format(name)
             return msg
         if '%' in name:
             msg = 'Nome `{}` invalido'.format(name)
             return msg
-#a função usando len não está atendendo a verificação esperada
+
         if len(number) == 0:
-            # bug invalid - esperava invalido
+
             msg = 'Nome `{}` invalido'.format(number)
             return msg
         if name not in self.entries:
             self.entries[name] = number
-        #adicionado um complemento na infomração enviadda ao usuario
+        # adicionado um complemento na infomração enviadda ao usuario
         msg = 'Numero adicionado - `{}` '.format(self.entries[name])
         return msg
+    # bug1 na linha 17 - palavra Nme esperava Nome
+    # bug2 na linha 24 - palavra 'invalio' - trocada por invalido
+    # bug4 na linha31  -# bug invalid - esperava invalido
+    # bug5 na linha a condição era se o tamanho era 'menor' foi corrigido para 'igual' para atender a condição
+    # Refatoração - foi usado uma variável para padronizar os returnos das condições
 
     def lookup(self, name):
         """
         :param name: name of person in string
         :return: return number of person with name
         """
-        # inserido uma verificação para name vazio
+
         if name is None:
             msg = 'Não é permitido nome vazio'
             return msg
         if '#' in name:
-            # bug invaldo - esperava invalido
+
             msg = 'Nome `{}` invalido'.format(name)
             return msg
         if '@' in name:
             msg = 'Nome `{}` invalido'.format(name)
             return msg
         if '!' in name:
-            # bug Nme - esperava Nome
+
             msg = 'Nome `{}` invalido'.format(name)
             return msg
         if '$' in name:
             msg = 'Nome `{}` invalido'.format(name)
             return msg
         if '%' in name:
-            # bug nvalido - esperava invalido
+
             msg = 'Nome `{}` invalido'.format(name)
             return msg
-        # inserido uma verificação para consulta um name na lista e retorna o numero
+
         for name_pesquisa in self.entries.keys():
             if name_pesquisa == name:
                 msg = 'Numero retornado: `{}` '.format(self.entries[name])
@@ -73,30 +77,36 @@ class Phonebook:
         msg = 'Nome `{}` não encontado'.format(name)
         return msg
 
+    # bug - linha 56  palavra 'invaldo' - trocada por 'invalido'
+    # bug - linha 63 palavra 'Nme' trocada por 'Nome'
+    # bug - linha 70 - palavra 'nvalido' trocada por 'invalido'
+    # Refatoração linha 73 -inserido uma verificação para consulta um name na lista e retorna o numero
+    # Refatoração linha 51 - inserido uma verificação para name vazio
+    # Refatoração - foi usado uma variável para padronizar os returnos das condições
+
     def get_names(self):
         """
-
         :return: return all names in phonebook
         """
         msg = 'Nomes retornados: `{}` '.format(self.entries.keys())
         return msg
+    # Refatoração - foi usado uma variável para padronizar os returnos das condições
 
     def get_numbers(self):
         """
-
         :return: return all numbers in phonebook
         """
         msg = 'Nomes retornados: `{}` '.format(self.entries.values())
         return msg
 
-
     def clear(self):
         """
         Clear all phonebook
-        :return: return 'phonebook limpado'
+        :return: return 'phonebook limpo'
         """
         self.entries = {}
-        return 'phonebook limpado'
+        return 'phonebook limpo'
+    # Refatoração - trocado a palavra 'limpado' por 'limpo
 
     def search(self, search_name):
         """
@@ -106,19 +116,20 @@ class Phonebook:
         """
         result = []
         for name, number in self.entries.items():
-            #Foi removido o 'not' da função, pois não estava retornando o resultado esperado
+
             if search_name in name:
                 result.append({name, number})
         return result
 
+    # Refatoração foi removido o 'not' da função, pois não estava retornando o resultado esperado
+
     def get_phonebook_sorted(self):
         """
-
         :return: return phonebook in sorted order
         """
-        #Foi feito uma validação para que retornasse o phonebook ordenado
         print(self.entries)
         return dict(sorted(self.entries.items()))
+    # refatoração -realizada uma validação para que retornasse o phonebook ordenado
 
     def get_phonebook_reverse(self):
         """
@@ -136,7 +147,4 @@ class Phonebook:
         msg = 'Numero deletado - {} '.format(self.entries[name])
         self.entries.pop(name)
         return msg
-
-
-
-
+    # Refatoração - foi usado uma variável para padronizar os returnos das condições

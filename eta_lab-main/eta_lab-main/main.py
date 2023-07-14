@@ -1,7 +1,7 @@
 from src.phonebook import Phonebook
 
 phonebook = Phonebook()
-# print(phonebook.entries)
+
 
 print("#Primeiro teste- adicionando Saude")
 
@@ -10,7 +10,7 @@ number_1 = '110'
 
 phonebook = Phonebook()
 resultado = phonebook.add(name_1, number_1)
-#print(phonebook.entries)
+
 print(resultado)
 
 print("#Segundo teste - tentando adicionar #")
@@ -19,7 +19,7 @@ number_1 = '120'
 
 phonebook = Phonebook()
 resultado = phonebook.add(name_1, number_1)
-#print(phonebook.entries)
+
 print(resultado)
 
 print("#Terceiro teste -  adicionar @")
@@ -28,7 +28,7 @@ number_1 = '120'
 
 phonebook = Phonebook()
 resultado = phonebook.add(name_1, number_1)
-#print(phonebook.entries)
+
 print(resultado)
 
 print("#Quarto teste -  adicionar !")
@@ -37,7 +37,7 @@ number_1 = '120'
 
 phonebook = Phonebook()
 resultado = phonebook.add(name_1, number_1)
-#print(phonebook.entries)
+
 print(resultado)
 
 print("#Quinto teste -  adicionar $")
@@ -46,7 +46,7 @@ number_1 = '120'
 
 phonebook = Phonebook()
 resultado = phonebook.add(name_1, number_1)
-#print(phonebook.entries)
+
 print(resultado)
 
 print("#Sexto teste -  adicionar %")
@@ -55,10 +55,10 @@ number_1 = '120'
 
 phonebook = Phonebook()
 resultado = phonebook.add(name_1, number_1)
-#print(phonebook.entries)
+
 print(resultado)
 
-#usando o len verificar posteriormente
+# usando o len verificar posteriormente
 
 print("#Setimo teste - Adicionando um numero menor que 0")
 name_1 = 'a'
@@ -66,7 +66,7 @@ number_1 = []
 
 phonebook = Phonebook()
 resultado = phonebook.add(name_1, number_1)
-#print(phonebook.entries)
+
 print(resultado)
 
 
@@ -112,7 +112,7 @@ number_1 = '345'
 
 phonebook = Phonebook()
 resultado = phonebook.lookup(name_1)
-#print(name_1)
+
 print(resultado)
 
 print("#Decimo terceiro teste - pesquisando por Silva")
@@ -155,16 +155,19 @@ print("#Decimo oitavo teste - limpar todo phonebook ")
 resultado_consulta = phonebook.clear()
 print(resultado_consulta)
 
-print("#Decimo nono teste - pesquisar por um nome que não está dicionário e retornar uma lista com nome e numero ")
+print("#Decimo nono teste - pesquisar por um nome que está na dicionário e retornar uma lista com nome e numero ")
 
 name = 'JOANA'
 number = '3567'
 name1 = 'GAL'
 number1 = '99'
+name2 = 'JOANA SILVA'
+number2 = '3988'
 search_name = 'JOANA'
 
 resultado = phonebook.add(name, number)
 resultado = phonebook.add(name1, number1)
+resultado = phonebook.add(name2, number2)
 resultado_consulta = phonebook.search(search_name)
 print(resultado_consulta)
 
@@ -213,4 +216,3 @@ resultado = phonebook.add(name1, number1)
 resultado = phonebook.add(name2, number2)
 resultado_deletado = phonebook.delete(name1)
 print(resultado_deletado)
-
